@@ -83,7 +83,14 @@ const Quiz = () => {
           alt="Profile"
           className="w-12 h-12 rounded-full border-2 border-purple-500"
         />
-        <span className="text-xl font-bold text-white">Syed Irfan Hussain Zaidi (monday 2 to 5)</span> {/* Replace with your name */}
+        <a
+          href="https://www.linkedin.com/in/irfan-hussain-12b66361/" 
+          target="_blank" // Opens the link in a new tab
+          rel="noopener noreferrer" // Recommended for security
+          className="text-xl font-bold text-white hover:text-purple-400 transition-all"
+        >
+          Irfan Zaidi (Monday 2 to 5) {/* Replace with your name */}
+        </a>
       </div>
 
       {/* GIAIC Roll No Section */}
