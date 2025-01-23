@@ -74,6 +74,12 @@ const Quiz = () => {
     shuffleQuestions(); // Shuffle questions for the new session
   };
 
+  const continueSession = () => {
+    setShowScore(false); // Hide the score screen
+    setCurrentQuestion((prev) => (prev + 1) % shuffledQuestions.length); // Move to the next question
+    setQuestionsAnswered(0); // Reset the questions answered counter for the next 5 questions
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 relative">
       {/* Profile Section */}
@@ -83,7 +89,7 @@ const Quiz = () => {
           alt="Profile"
           className="w-12 h-12 rounded-full border-2 border-purple-500"
         />
-        <a
+     <a
           href="https://www.linkedin.com/in/irfan-hussain-12b66361/" 
           target="_blank" // Opens the link in a new tab
           rel="noopener noreferrer" // Recommended for security
@@ -135,12 +141,21 @@ const Quiz = () => {
             </div>
           )}
 
-          <button
-            onClick={resetSession}
-            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg"
-          >
-            Start New Session
-          </button>
+          {/* Action Buttons */}
+          <div className="flex justify-center space-x-4">
+            <button
+              onClick={resetSession}
+              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg"
+            >
+              Start New Session
+            </button>
+            <button
+              onClick={continueSession}
+              className="bg-gradient-to-r from-green-500 to-teal-600 text-white px-6 py-3 rounded-lg hover:from-green-600 hover:to-teal-700 transition-all shadow-lg"
+            >
+              Continue Session
+            </button>
+          </div>
         </div>
       ) : (
         <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-lg shadow-2xl w-full max-w-2xl border border-gray-700">
